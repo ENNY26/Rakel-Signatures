@@ -1,0 +1,845 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+TAS:wght@100..400&display=swap');
+:root {
+  --red-light: #ffe5e5;
+  --red-medium: #ff9999;
+  --red-dark: #ff4d4d;
+  --red-darker: #cc0000;
+  --red-darkest: #990000;
+  --red-text: #b30000;
+  --red-button-bg: #ff4d4d;
+  --red-button-hover: #cc0000;
+  --red-border: #ff9999;
+
+  --blue-light: #d4d8ea;
+  --blue-medium: #99ccff;
+  --blue-dark: #4da6ff;
+  --blue-darker: #005c99;
+  --blue-darkest: #003366;
+  --blue-text: #004080;
+  --blue-button-bg: #4da6ff;
+  --blue-button-hover: #005c99;
+  --blue-border: #99ccff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--red-light);
+
+}
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensures the header is above other content */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--red-darkest);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  color: var(--red-text);
+  text-decoration: none;
+}
+
+.nav-links .order-now {
+  background-color: var(--red-button-bg);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav-links .order-now:hover {
+  background-color: var(--red-button-hover);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--red-darkest);
+  margin: 4px 0;
+}
+
+#hero {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--red-dark);
+  opacity: 0.5;
+  border-radius: 10px;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h1 {
+  padding-top:40px;
+  font-size: 4rem;
+  font-family: "Playwrite AU TAS", cursive;
+  color: var(--red-darkest);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  color: var(--blue-text);
+}
+
+.hero-content .order-now-hero {
+  background-color: var(--red-button-bg);
+  border: none;
+  color: var(--blue-border);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hero-content .order-now-hero:hover {
+  background-color: var(--red-button-hover);
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 50%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 1rem;
+  }
+
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  #hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+  
+#events {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+#events h1 {
+  font-size: 2rem;
+  font-family: "Playwrite AU TAS", cursive;
+  color: var(--blue-text);
+  padding-top: 4rem;
+  margin: 3rem;
+}
+
+.event-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.event{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-image {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0.5rem;
+}
+
+.event-image p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: "Playwrite AU TAS", cursive;
+  font-weight: 800;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.event:hover .event-image p {
+  opacity: 1;
+}
+
+.birthday {
+  background-image: url('imgs/birthday.jpg');
+}
+
+.wedding {
+  background-image: url('imgs/weddings.jpg');
+}
+
+.christening {
+  background-image: url('imgs/christening.jpg');
+}
+
+.anniversary {
+  background-image: url('imgs/anniversary.jpg');
+}
+
+.graduation {
+  background-image: url('imgs/graduation.jpg');
+}
+
+.surprise {
+  background-image: url('imgs/suprise.jpg');
+}
+
+@media (max-width: 768px) {
+  .event-icons {
+    flex-direction: column;
+  }
+  
+  .events h1 {
+    padding: 2rem;
+    font-size: 2.5rem;
+  }
+}
+
+  /*----about us---- */
+  #about-us {
+    background-color: var(--pink-light);
+    padding: 4rem 0;
+  }
+  
+  .about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+  
+  .about-text {
+    flex: 1;
+  }
+  
+  .about-text h2 {
+    font-family: "Playwrite AU TAS", cursive;
+    font-size: 2.5rem;
+    color: var(--red-text);
+    margin-bottom: 1rem;
+  }
+  
+  .about-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--blue-text);
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-image-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    flex: 1;
+  }
+  
+  .image-item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .image1 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+  
+  .image2 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+  
+  .image3 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+  }
+  
+  .image4 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+  
+  .image5 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  
+  @media (max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .about-text {
+      margin-bottom: 2rem;
+    }
+  
+    .about-image-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(2, auto);
+      gap: 0.5rem;
+    }
+  
+    .image1, .image2 {
+      display: none;
+    }
+  
+    .image3 {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      height: 200px;
+    }
+  
+    .image4 {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      height: 200px;
+    }
+  
+    .image5 {
+      grid-column: 1 / 3;
+      grid-row: 2 / 3;
+      width: 400px;
+      padding-left: 3px;
+      height: 350px;
+    }
+  
+    .image-item img {
+      height: 100%;
+    }
+  }
+  
+
+  /*------FEATURES-----*/
+
+  #features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+  
+  .feature-item {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    position: relative;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+  }
+
+  .feature-item h3 {
+    margin-top: 2rem;
+color: var(--blue-medium);    font-size: 1.8rem;
+  }
+  #features h1{
+    font-size: 2.3rem;
+    text-align: center;
+    font-family: "Playwrite AU TAS", cursive;
+    color: var(--blue-text);
+  }
+  
+  @media (max-width: 768px) {
+    #features {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+
+  
+  #product-categories {
+    font-family: "Playwrite AU TAS", cursive;
+    padding: 4rem 1rem;
+    font-size: 2rem;
+    color: var(--red-text);
+    text-align: center;
+  }
+  #product-categories h1{
+    margin-bottom: 5rem;
+
+  }
+  .categories-container {
+    display: flex;
+    gap: 1rem;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+  }
+  
+  .category {
+    position: relative;
+    flex: 0 0 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    scroll-snap-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .category img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgb(80, 80, 115);
+    opacity: 0.1; /* Adjust opacity as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s;
+  }
+  
+  .category-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .shop-categories-btn {
+    background-color: var(--blue-dark);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .categories-container {
+      flex-direction: column;
+      overflow: visible;
+    }
+  
+    .category {
+      margin: 0 auto 1rem;
+    }
+  
+    .category img {
+      object-fit: contain;
+      width: 100%;
+    }
+  
+    .category-overlay {
+      opacity: 0.8; /* Adjust opacity for better visibility on mobile */
+    }
+  }
+
+
+
+/*----REVIEWS-----*/
+#reviews {
+  background-color: var(--red-light);
+  padding: 4rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+#reviews h1 {
+  font-size: 2.5rem;
+  font-family: "Playwrite AU TAS", cursive;
+  color: var(--blue-darkest);
+  margin-bottom: 2rem;
+}
+
+.reviews-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+}
+
+.review-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  flex: 1;
+}
+
+.review-image {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review-texts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.review-text {
+  background-color: var(--red-medium);
+  color: white;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  text-align: center;
+  z-index: 1;
+}
+
+.reviewer {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .reviews-container {
+      flex-direction: column;
+  }
+
+  .review-images {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+  }
+
+  .review-texts {
+      align-items: center;
+      margin-bottom: 2rem;
+  }
+}
+
+
+/*---- REACH OUT*/
+
+#reach-out {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+#reach-out h1 {
+  font-family: "Playwrite AU TAS", cursive;
+  font-size: 2.5rem;
+  color: var(--red-text);
+  margin-bottom: 2rem;
+}
+
+.reach-out-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+  background-color: var(--pink-lighter);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  color: var(--blue-text);
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem;
+  border: 1px solid var(--blue-border);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--blue-darkest);
+}
+
+button[type="submit"] {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--blue-button-bg);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--blue-button-hover);
+}
+
+@media (max-width: 768px) {
+  .reach-out-form {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.5rem;
+  }
+  
+  button[type="submit"] {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+
+
+#footer {
+  background-color: var(--blue-light);
+  color: var(--blue-text);
+  padding: 2rem 1rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: var(--blue-text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+
+
+.review-box .review-input {
+  display: flex;
+  align-items: center;
+}
+
+.review-box input {
+  padding: 0.5rem;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  flex: 1;
+}
+
+.review-box button {
+  padding: 0.5rem 1rem;
+  background-color: var(--blue-button-bg);
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.review-box button:hover {
+  background-color: var(--blue-button-hover);
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+}
+
+.social-links {
+ display: flex;
+justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.social-links a img {
+  width: 30px;
+  height: 30px;
+}
+i {
+  border: 1px solid var(--blue-border);
+  width: 30px;
+  color: var(--blue-button-bg);
+  display: flex;
+  cursor: pointer;
+  padding: 6px;
+  height: 30px;
+}
+
+.footer-section-company-name a{
+  color: var(--blue-text);
+  text-decoration: none;
+}
+.social-links :hover{
+  background-color: var(--blue-button-hover);
+  transform:translateX(-7px) ;
+}
+.social-links .fa{
+  transition: .5s;
+}
+
+.company-name p {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .review-box .review-input {
+    flex-direction: column;
+  }
+
+  .review-box input {
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+  }
+
+  .review-box button {
+    border-radius: 5px;
+  }
+}
